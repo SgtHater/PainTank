@@ -4,7 +4,7 @@ using System.Collections;
 public class ShootController : MonoBehaviour
 {
     public GameObject ParentTank;
-    public FireController fireController;
+    public TankController TankController;
     public float delay = 3;
     bool fired = false;
 
@@ -15,11 +15,11 @@ public class ShootController : MonoBehaviour
     }
     void FireDelay()
     {
-        if (Input.GetAxis(ParentTank.name + "_Fire") != 0)
+        if (Input.GetAxis(ParentTank.name + "_Tank_Fire") != 0)
         {
             if (!fired)
             {
-                fireController.ActivateBullet(this.transform);
+                TankController.FireController.ActivateBullet(this.transform);
                 fired = true;
                 ActivateTimer();
             }
