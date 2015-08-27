@@ -8,8 +8,8 @@ public class ChoosePowerUp : MonoBehaviour
     public GameObject Rectangle;
     public GameObject[] powerup;
     private GameObject rectangle;
-    private int arrayPos;
-    private int lastArrayPos;
+    public int arrayPos;
+    
 
     void Awake()
     {
@@ -33,7 +33,6 @@ public class ChoosePowerUp : MonoBehaviour
                 rectangle.transform.SetParent(powerup[0].transform);
                 isSpawned = true;
                 arrayPos = 0;
-                lastArrayPos = arrayPos;
             }
 
             if (Input.GetButtonDown(gameObject.name + "_RightBumper"))
@@ -48,13 +47,8 @@ public class ChoosePowerUp : MonoBehaviour
                     }
                 }
                 rectangle.transform.SetParent(powerup[arrayPos].transform, false);
+                Debug.Log(powerup[arrayPos].name);
             }
-            Debug.Log(arrayPos);
-
-           
-
-
-
         }
         if (Input.GetButtonDown(gameObject.name + "_LeftBumper"))
         {
