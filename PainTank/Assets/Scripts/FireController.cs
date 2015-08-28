@@ -8,8 +8,9 @@ public class FireController : MonoBehaviour
     public GameObject Bullet;
     List<GameObject> BulletPool;
     int poolAmount = 10;
+    float bulletSpeed = 45;
 
-	void Start ()
+    void Start()
     {
         BulletPool = new List<GameObject>();
         for (int i = 0; i < poolAmount; i++)
@@ -18,7 +19,7 @@ public class FireController : MonoBehaviour
             bullet.SetActive(false);
             BulletPool.Add(bullet);
         }
-	}
+    }
 
     public void ActivateBullet(Transform muzzelTransform)
     {
@@ -28,8 +29,14 @@ public class FireController : MonoBehaviour
             {
                 bullet.SetActive(true);
                 bullet.transform.position = muzzelTransform.position;
-                bullet.GetComponent<Rigidbody>().AddForce(muzzelTransform.up *2 , ForceMode.Impulse);
+                bullet.GetComponent<Rigidbody>().AddForce(-bullet.GetComponent<Rigidbody>().velocity, ForceMode.Impulse);
+                bullet.GetComponent<Rigidbody>().AddForce(muzzelTransform.up * bulletSpeed, ForceMode.Impulse);
+                return;
             }
         }
+        GameObject additionalbullet = (GameObject)Instantiate(Bullet);
+        BulletPool.Add(additionalbullet);
+        additionalbullet.transform.position = muzzelTransform.position;
+        additionalbullet.GetComponent<Rigidbody>().AddForce(muzzelTransform.up * 35, ForceMode.Impulse);
     }
 }
