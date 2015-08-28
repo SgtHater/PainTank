@@ -47,7 +47,7 @@ public class InstantiatePowerUp : MonoBehaviour {
                 {
                     if (item.name.StartsWith("Wall"))
                     {
-                        Vector3 rdnTransform = new Vector3(Random.Range(360, 436), 146, Random.Range(-66, -144));
+                        Vector3 rdnTransform = new Vector3(Random.Range(-37.5f, 37.5f), 1f, Random.Range(-37.5f, 37.5f));
                         item.SetActive(true);
                         item.transform.position = rdnTransform;
                         item.transform.rotation = transform.rotation;
@@ -65,7 +65,7 @@ public class InstantiatePowerUp : MonoBehaviour {
                 {
                     if (item.name.StartsWith("Shield"))
                     {
-                        Vector3 rdnTransform = new Vector3(Random.Range(360, 436), 146, Random.Range(-66, -144));
+                        Vector3 rdnTransform = new Vector3(Random.Range(-37.5f, 37.5f), 1f, Random.Range(-37.5f, 37.5f));
                         item.SetActive(true);
                         item.transform.position = rdnTransform;
                         item.transform.rotation = transform.rotation;
@@ -83,7 +83,7 @@ public class InstantiatePowerUp : MonoBehaviour {
                 {
                     if (item.name.StartsWith("Nitro"))
                     {
-                        Vector3 rdnTransform = new Vector3(Random.Range(360, 436), 146, Random.Range(-66, -144));
+                        Vector3 rdnTransform = new Vector3(Random.Range(-37.5f, 37.5f), 1f, Random.Range(-37.5f, 37.5f));
                         item.SetActive(true);
                         item.transform.position = rdnTransform;
                         item.transform.rotation = transform.rotation;
@@ -101,7 +101,7 @@ public class InstantiatePowerUp : MonoBehaviour {
                 {
                     if (item.name.StartsWith("Laser"))
                     {
-                        Vector3 rdnTransform = new Vector3(Random.Range(360, 436), 146, Random.Range(-66, -144));
+                        Vector3 rdnTransform = new Vector3(Random.Range(-37.5f, 37.5f), 1f, Random.Range(-37.5f, 37.5f));
                         item.SetActive(true);
                         item.transform.position = rdnTransform;
                         item.transform.rotation = transform.rotation;
