@@ -11,23 +11,22 @@ public class TriggerEvent : MonoBehaviour
     void Awake()
     {
         controller = GameObject.Find("UIController");
-
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "JackEagle")
+        if (other.gameObject.transform.parent.tag == "JackEagle")
         {
             if (this.controller.GetComponent<UiController>().PanelArray[0].childCount <= 3)
             {
                 Utility.IsPowerUpInPanel = true;
+                Utility.JackTankIsPowerUpInPanel = true;
                 GameObject powerup = Instantiate(Prefab) as GameObject;
                 powerup.transform.SetParent(this.controller.GetComponent<UiController>().PanelArray[0]);
-                Transform Main = other.transform.parent;
-                for (int i = 0; i < Main.GetComponent<ChoosePowerUp>().powerup.Length; i++)
+                for (int i = 0; i < other.GetComponent<ChoosePowerUp>().PowerUps.Length; i++)
                 {
-                    if (Main.GetComponent<ChoosePowerUp>().powerup[i] == null)
+                    if (other.GetComponent<ChoosePowerUp>().PowerUps[i] == null)
                     {
-                        Main.GetComponent<ChoosePowerUp>().powerup[i] = powerup;
+                        other.GetComponent<ChoosePowerUp>().PowerUps[i] = powerup;
                         break;
                     }
                     
@@ -35,19 +34,59 @@ public class TriggerEvent : MonoBehaviour
                 this.gameObject.SetActive(false);
             }
         }
-        else if (other.gameObject.tag == "TankVader")
+        else if (other.gameObject.transform.parent.tag == "TankVader")
         {
-            if (this.controller.GetComponent<UiController>().PanelArray[0].childCount <= 3)
+            if (this.controller.GetComponent<UiController>().PanelArray[2].childCount <= 3)
             {
                 Utility.IsPowerUpInPanel = true;
+                Utility.TankVaderPowerUpInPanel = true;
                 GameObject powerup = Instantiate(Prefab) as GameObject;
                 powerup.transform.SetParent(this.controller.GetComponent<UiController>().PanelArray[2]);
-                Transform Main = other.transform.parent;
-                for (int i = 0; i < Main.GetComponent<ChoosePowerUp>().powerup.Length; i++)
+                for (int i = 0; i < other.GetComponent<ChoosePowerUp>().PowerUps.Length; i++)
                 {
-                    if (Main.GetComponent<ChoosePowerUp>().powerup[i] == null)
+                    if (other.GetComponent<ChoosePowerUp>().PowerUps[i] == null)
                     {
-                        Main.GetComponent<ChoosePowerUp>().powerup[i] = powerup;
+                        other.GetComponent<ChoosePowerUp>().PowerUps[i] = powerup;
+                        break;
+                    }
+
+                }
+                this.gameObject.SetActive(false);
+            }
+        }
+        if (other.gameObject.transform.parent.tag == "JamesTank")
+        {
+            if (this.controller.GetComponent<UiController>().PanelArray[3].childCount <= 3)
+            {
+                Utility.IsPowerUpInPanel = true;
+                Utility.JamesTankPowerUpInPanel = true;
+                GameObject powerup = Instantiate(Prefab) as GameObject;
+                powerup.transform.SetParent(this.controller.GetComponent<UiController>().PanelArray[0]);
+                for (int i = 0; i < other.GetComponent<ChoosePowerUp>().PowerUps.Length; i++)
+                {
+                    if (other.GetComponent<ChoosePowerUp>().PowerUps[i] == null)
+                    {
+                        other.GetComponent<ChoosePowerUp>().PowerUps[i] = powerup;
+                        break;
+                    }
+
+                }
+                this.gameObject.SetActive(false);
+            }
+        }
+        if (other.gameObject.transform.parent.tag == "HeisenTank")
+        {
+            if (this.controller.GetComponent<UiController>().PanelArray[1].childCount <= 3)
+            {
+                Utility.IsPowerUpInPanel = true;
+                Utility.HeisenTankPowerUpInPanel = true;
+                GameObject powerup = Instantiate(Prefab) as GameObject;
+                powerup.transform.SetParent(this.controller.GetComponent<UiController>().PanelArray[0]);
+                for (int i = 0; i < other.GetComponent<ChoosePowerUp>().PowerUps.Length; i++)
+                {
+                    if (other.GetComponent<ChoosePowerUp>().PowerUps[i] == null)
+                    {
+                        other.GetComponent<ChoosePowerUp>().PowerUps[i] = powerup;
                         break;
                     }
 

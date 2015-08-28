@@ -4,9 +4,13 @@ using System.Collections;
 public class ChoosePowerUp : MonoBehaviour
 {
     private GameObject controller;
-    private bool isSpawned = false;
+    private bool JackEagleisSpawned = false;
+    private bool HeisentankisSpawned = false;
+    private bool TankVaderisSpawned = false;
+    private bool JamesTankisSpawned = false;
+
     public GameObject Rectangle;
-    public GameObject[] powerup;
+    public GameObject[] PowerUps;
     private GameObject rectangle;
     public int arrayPos;
     
@@ -25,48 +29,175 @@ public class ChoosePowerUp : MonoBehaviour
 
     void ChoosePowerUps()
     {
-        if (this.gameObject.tag == "JackEagle")
+        if (this.gameObject.transform.parent.tag == "JackEagle")
         {
-            if (!isSpawned)
+            if (!JackEagleisSpawned && Utility.JackTankIsPowerUpInPanel)
             {
                 rectangle = Instantiate(Rectangle) as GameObject;
-                rectangle.transform.SetParent(powerup[0].transform);
-                isSpawned = true;
+                rectangle.transform.SetParent(PowerUps[0].transform);
+                JackEagleisSpawned = true;
                 arrayPos = 0;
             }
 
-            if (Input.GetButtonDown(gameObject.name + "_RightBumper"))
+            if (Input.GetButtonDown(this.gameObject.transform.parent.name + "_RightBumper"))
             {
-
                 arrayPos += 1;
-                if (arrayPos < powerup.Length)
+                if (arrayPos < PowerUps.Length)
                 {
-                    if (powerup[arrayPos] == null)
+                    if (PowerUps[arrayPos] == null)
                     {
                         arrayPos-= 1;
                     }
                 }
-                rectangle.transform.SetParent(powerup[arrayPos].transform, false);
-                Debug.Log(powerup[arrayPos].name);
-            }
-        }
-        if (Input.GetButtonDown(gameObject.name + "_LeftBumper"))
-        {
-            arrayPos -= 1;
-            if (arrayPos < 0)
-            {
-                arrayPos = 0;
-                if (arrayPos < powerup.Length)
-                {
-                    if (powerup[arrayPos] == null)
-                    {
-                        arrayPos += 1;
-                    }
-                }
+                rectangle.transform.SetParent(PowerUps[arrayPos].transform, false);
                 
             }
-            rectangle.transform.SetParent(powerup[arrayPos].transform, false);
+            if (Input.GetButtonDown(this.gameObject.transform.parent.name + "_LeftBumper"))
+            {
+                arrayPos -= 1;
+                if (arrayPos < 0)
+                {
+                    arrayPos = 0;
+                    if (arrayPos < PowerUps.Length)
+                    {
+                        if (PowerUps[arrayPos] == null)
+                        {
+                            arrayPos += 1;
+                        }
+                    }
+
+                }
+                rectangle.transform.SetParent(PowerUps[arrayPos].transform, false);
+                Debug.Log(arrayPos);
+            }
         }
+        else if (this.gameObject.transform.parent.tag == "TankVader")
+        {
+            if (!TankVaderisSpawned && Utility.TankVaderPowerUpInPanel)
+            {
+                rectangle = Instantiate(Rectangle) as GameObject;
+                rectangle.transform.SetParent(PowerUps[0].transform);
+                TankVaderisSpawned = true;
+                arrayPos = 0;
+            }
+
+            if (Input.GetButtonDown(this.gameObject.transform.parent.name + "_RightBumper"))
+            {
+                arrayPos += 1;
+                if (arrayPos < PowerUps.Length)
+                {
+                    if (PowerUps[arrayPos] == null)
+                    {
+                        arrayPos -= 1;
+                    }
+                }
+                rectangle.transform.SetParent(PowerUps[arrayPos].transform, false);
+
+            }
+            if (Input.GetButtonDown(this.gameObject.transform.parent.name + "_LeftBumper"))
+            {
+                arrayPos -= 1;
+                if (arrayPos < 0)
+                {
+                    arrayPos = 0;
+                    if (arrayPos < PowerUps.Length)
+                    {
+                        if (PowerUps[arrayPos] == null)
+                        {
+                            arrayPos += 1;
+                        }
+                    }
+
+                }
+                rectangle.transform.SetParent(PowerUps[arrayPos].transform, false);
+                Debug.Log(arrayPos);
+            }
+        }
+        else if (this.gameObject.transform.parent.tag == "HeisenTank")
+        {
+            if (!HeisentankisSpawned && Utility.HeisenTankPowerUpInPanel)
+            {
+                rectangle = Instantiate(Rectangle) as GameObject;
+                rectangle.transform.SetParent(PowerUps[0].transform);
+                HeisentankisSpawned = true;
+                arrayPos = 0;
+            }
+
+            if (Input.GetButtonDown(this.gameObject.transform.parent.name + "_RightBumper"))
+            {
+                arrayPos += 1;
+                if (arrayPos < PowerUps.Length)
+                {
+                    if (PowerUps[arrayPos] == null)
+                    {
+                        arrayPos -= 1;
+                    }
+                }
+                rectangle.transform.SetParent(PowerUps[arrayPos].transform, false);
+
+            }
+            if (Input.GetButtonDown(this.gameObject.transform.parent.name + "_LeftBumper"))
+            {
+                arrayPos -= 1;
+                if (arrayPos < 0)
+                {
+                    arrayPos = 0;
+                    if (arrayPos < PowerUps.Length)
+                    {
+                        if (PowerUps[arrayPos] == null)
+                        {
+                            arrayPos += 1;
+                        }
+                    }
+
+                }
+                rectangle.transform.SetParent(PowerUps[arrayPos].transform, false);
+                Debug.Log(arrayPos);
+            }
+        }
+        else if (this.gameObject.transform.parent.tag == "JamesTank")
+        {
+            if (!JamesTankisSpawned && Utility.JamesTankPowerUpInPanel)
+            {
+                rectangle = Instantiate(Rectangle) as GameObject;
+                rectangle.transform.SetParent(PowerUps[0].transform);
+                JamesTankisSpawned = true;
+                arrayPos = 0;
+            }
+
+            if (Input.GetButtonDown(this.gameObject.transform.parent.name + "_RightBumper"))
+            {
+                arrayPos += 1;
+                if (arrayPos < PowerUps.Length)
+                {
+                    if (PowerUps[arrayPos] == null)
+                    {
+                        arrayPos -= 1;
+                    }
+                }
+                rectangle.transform.SetParent(PowerUps[arrayPos].transform, false);
+
+            }
+            if (Input.GetButtonDown(this.gameObject.transform.parent.name + "_LeftBumper"))
+            {
+                arrayPos -= 1;
+                if (arrayPos < 0)
+                {
+                    arrayPos = 0;
+                    if (arrayPos < PowerUps.Length)
+                    {
+                        if (PowerUps[arrayPos] == null)
+                        {
+                            arrayPos += 1;
+                        }
+                    }
+
+                }
+                rectangle.transform.SetParent(PowerUps[arrayPos].transform, false);
+                Debug.Log(arrayPos);
+            }
+        }
+
     }
 }
 

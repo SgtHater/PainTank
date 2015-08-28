@@ -8,7 +8,7 @@ public class UserPowerUp : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        this.powerUp = GetComponent<ChoosePowerUp>();
+        this.powerUp = GetComponentInChildren<ChoosePowerUp>();
 	}
 	
 	// Update is called once per frame
@@ -19,25 +19,94 @@ public class UserPowerUp : MonoBehaviour {
 
     void InstantiatePowerUp()
     {
-        if (Input.GetButtonDown(this.gameObject.name + "_UsePowerUp") && this.powerUp.powerup[this.powerUp.arrayPos] != null)
+        if (this.gameObject.name == "JackEagle")
         {
-            if (this.powerUp.powerup[this.powerUp.arrayPos].name.StartsWith("Shield"))
+            if (Input.GetButtonDown(this.gameObject.name + "_UsePowerUp"))
             {
-                Debug.Log("Haha ein Schild");
-                
-            }
-            if (this.powerUp.powerup[this.powerUp.arrayPos].name.StartsWith("Laser"))
-            {
-                Debug.Log("Haha ein Laser");
-            }
-            if (this.powerUp.powerup[this.powerUp.arrayPos].name.StartsWith("Wall"))
-            {
-                Debug.Log("Haha ein Wall");
-            }
-            if (this.powerUp.powerup[this.powerUp.arrayPos].name.StartsWith("Nitro"))
-            {
-                Debug.Log("Haha ein Nitro");
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Shield"))
+                {
+                    Debug.Log("Haha ein Schild");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Laser"))
+                {
+                    Debug.Log("Haha ein Laser");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Wall"))
+                {
+                    Debug.Log("Haha ein Wall");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Nitro"))
+                {
+                    Debug.Log("Haha ein Nitro");
+                }
             }
         }
+        else if (this.gameObject.name == "TankVader")
+        {
+            if (Input.GetButtonDown(this.gameObject.name + "_UsePowerUp"))
+            {
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Shield"))
+                {
+                    Debug.Log("Haha ein Schild");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Laser"))
+                {
+                    Debug.Log("Haha ein Laser");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Wall"))
+                {
+                    Debug.Log("Haha ein Wall");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Nitro"))
+                {
+                    Debug.Log("Haha ein Nitro");
+                }
+            }
+        }
+        else if (this.gameObject.name == "HeisenTank")
+        {
+            if (Input.GetButtonDown(this.gameObject.name + "_UsePowerUp"))
+            {
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Shield"))
+                {
+                    Debug.Log("Haha ein Schild");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Laser"))
+                {
+                    Debug.Log("Haha ein Laser");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Wall"))
+                {
+                    Debug.Log("Haha ein Wall");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Nitro"))
+                {
+                    Debug.Log("Haha ein Nitro");
+                }
+            }
+        }
+        else if (this.gameObject.name == "JamesTank")
+        {
+            if (Input.GetButtonDown(this.gameObject.name + "_UsePowerUp"))
+            {
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Shield"))
+                {
+                    Debug.Log("Haha ein Schild");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Laser"))
+                {
+                    Debug.Log("Haha ein Laser");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Wall"))
+                {
+                    Debug.Log("Haha ein Wall");
+                }
+                if (this.powerUp.PowerUps[this.powerUp.arrayPos].name.StartsWith("Nitro"))
+                {
+                    Debug.Log("Haha ein Nitro");
+                }
+            }
+        }
+
     }
 }
