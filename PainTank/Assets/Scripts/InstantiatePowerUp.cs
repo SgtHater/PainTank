@@ -32,7 +32,7 @@ public class InstantiatePowerUp : MonoBehaviour {
             powerups.Add(laser);
         }
 
-        InvokeRepeating("InstantiatePowerUps", 2f, 15f);
+        InvokeRepeating("InstantiatePowerUps", 2f, 2f);
 	}
 	
     void InstantiatePowerUps()
