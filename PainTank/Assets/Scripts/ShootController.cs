@@ -26,7 +26,7 @@ public class ShootController : MonoBehaviour
                 ActivateTimer();
             }
         }
-    }
+    } 
     void ActivateTimer()
     {
         if (fired)
