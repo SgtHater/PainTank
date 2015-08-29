@@ -21,7 +21,7 @@ public class FireController : MonoBehaviour
         }
     }
 
-    public void ActivateBullet(Transform muzzelTransform)
+    public void ActivateBullet(Transform muzzelTransform, Color bulletColor)
     {
         foreach (var bullet in BulletPool)
         {
@@ -29,6 +29,7 @@ public class FireController : MonoBehaviour
             {
                 bullet.SetActive(true);
                 bullet.transform.position = muzzelTransform.position;
+                bullet.GetComponent<Renderer>().material.color = bulletColor;
                 bullet.GetComponent<Rigidbody>().AddForce(-bullet.GetComponent<Rigidbody>().velocity, ForceMode.Impulse);
                 bullet.GetComponent<Rigidbody>().AddForce(muzzelTransform.up * bulletSpeed, ForceMode.Impulse);
                 return;

@@ -5,6 +5,7 @@ public class ShootController : MonoBehaviour
 {
     public GameObject ParentTank;
     public TankController TankController;
+    public Color BulletColor;
     public float delay = 3;
     bool fired = false;
 
@@ -12,6 +13,7 @@ public class ShootController : MonoBehaviour
     {
         FireDelay();
         ActivateTimer();
+        ChangeBulletColor();
     }
     void FireDelay()
     {
@@ -19,7 +21,7 @@ public class ShootController : MonoBehaviour
         {
             if (!fired)
             {
-                TankController.FireController.ActivateBullet(this.transform);
+                TankController.FireController.ActivateBullet(this.transform, BulletColor);
                 fired = true;
                 ActivateTimer();
             }
@@ -35,6 +37,25 @@ public class ShootController : MonoBehaviour
                 fired = false;
                 delay = 3.5f;
             }
+        }
+    }
+    void ChangeBulletColor()
+    {
+        if (ParentTank.name == "JackEagle")
+        {
+            BulletColor = Color.green;
+        }
+        else if (ParentTank.name == "TankVader")
+        {
+            BulletColor = Color.white;
+        }
+        else if (ParentTank.name == "HeisenTank")
+        {
+            BulletColor = Color.blue;
+        }
+        else if (ParentTank.name == "JamesTank")
+        {
+            BulletColor = Color.red;
         }
     }
 }
