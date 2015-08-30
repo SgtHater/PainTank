@@ -6,6 +6,7 @@ public class TankController : MonoBehaviour
     [SerializeField]
     GameObject tower;
     public FireController FireController;
+    public float Health = 100;
     public float MovementSpeed;
     public float RotationSpeedY;
     public float RotationSpeedX;
@@ -19,6 +20,7 @@ public class TankController : MonoBehaviour
     {
         BodyMovement();
         TowerRotation();
+        CheckHealth();
     }
 
     void BodyMovement()
@@ -43,6 +45,14 @@ public class TankController : MonoBehaviour
         if (direction.sqrMagnitude > 0)
         {
             tower.transform.rotation = Quaternion.Lerp(this.tower.transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime);
+        }
+    }
+
+    void CheckHealth()
+    {
+        if (Health == 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
