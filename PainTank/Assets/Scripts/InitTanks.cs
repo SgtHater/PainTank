@@ -23,18 +23,22 @@ public class InitTanks : MonoBehaviour
     {
         //JackEagle Spawner
 
-        jack.transform.position = new Vector3(-23, 0.75f, 32);
-        jack.transform.rotation = Quaternion.Euler(0, 150, 0);
+        jack.transform.position = new Vector3(32, 0.75f, -32); //32, 0.75f, -32
+        jack.transform.rotation = Quaternion.Euler(0, -30, 0); //0, -30, 0
         jack.GetComponent<TankController>().FireController = fireController;
         jack.gameObject.tag = "JackEagle";
         jack.gameObject.name = "JackEagle";
         Transform[] jackChilds = jack.GetComponentsInChildren<Transform>();
         foreach (var item in jackChilds)
         {
+            if (item.name == "_Body")
+            {
+                item.transform.tag = "JackEagleBody";
+                break;
+            }
             if (item.name == "Canon_Muzzle")
             {
                 item.transform.tag = "JackMuzzle";
-                break;
             }
         }
 
@@ -47,10 +51,14 @@ public class InitTanks : MonoBehaviour
         Transform[] vaderChilds = vader.GetComponentsInChildren<Transform>();
         foreach (var item in vaderChilds)
         {
+            if (item.name == "_Body")
+            {
+                item.transform.tag = "TankVaderBody";
+                break;
+            }
             if (item.name == "Canon_Muzzle")
             {
                 item.transform.tag = "VaderMuzzle";
-                break;
             }
         }
 
@@ -63,26 +71,34 @@ public class InitTanks : MonoBehaviour
         Transform[] heisenChilds = heisen.GetComponentsInChildren<Transform>();
         foreach (var item in heisenChilds)
         {
+            if (item.name == "_Body")
+            {
+                item.transform.tag = "HeisenTankBody";
+                break;
+            }
             if (item.name == "Canon_Muzzle")
             {
                 item.transform.tag = "HeisenMuzzle";
-                break;
             }
         }
 
         //JamesTank Spawner
-        james.transform.position = new Vector3(32, 0.75f, -32);
-        james.transform.rotation = Quaternion.Euler(0, -30, 0);
+        james.transform.position = new Vector3(-23, 0.75f, 32); //-23, 0.75f, 32
+        james.transform.rotation = Quaternion.Euler(0, 150, 0); //0, 150, 0
         james.GetComponent<TankController>().FireController = fireController;
         james.gameObject.tag = "JamesTank";
         james.gameObject.name = "JamesTank";
         Transform[] jamesChild = james.GetComponentsInChildren<Transform>();
         foreach (var item in jamesChild)
         {
+            if (item.name == "_Body")
+            {
+                item.transform.tag = "JamesTankBody";
+                break;
+            }
             if (item.name == "Canon_Muzzle")
             {
                 item.transform.tag = "JamesMuzzle";
-                break;
             }
         }
     }

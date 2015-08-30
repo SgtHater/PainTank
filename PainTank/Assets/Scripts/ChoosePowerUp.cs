@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ChoosePowerUp : MonoBehaviour
 {
-    private GameObject controller;
+    GameObject controller;
     private bool JackEagleisSpawned = false;
     private bool HeisentankisSpawned = false;
     private bool TankVaderisSpawned = false;

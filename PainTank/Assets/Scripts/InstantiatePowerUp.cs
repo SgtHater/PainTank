@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class InstantiatePowerUp : MonoBehaviour {
     public GameObject Wall;
     public GameObject Shield;
-    public GameObject Nitro;
     public GameObject Laser;
     public GameObject Map;
 
@@ -24,15 +23,12 @@ public class InstantiatePowerUp : MonoBehaviour {
             GameObject shield = (GameObject)Instantiate(Shield);
             shield.SetActive(false);
             powerups.Add(shield);
-            GameObject nitro = (GameObject)Instantiate(Nitro);
-            nitro.SetActive(false);
-            powerups.Add(nitro);
             GameObject laser = (GameObject)Instantiate(Laser);
             laser.SetActive(false);
             powerups.Add(laser);
         }
 
-        InvokeRepeating("InstantiatePowerUps", 2f, 2f);
+        InvokeRepeating("InstantiatePowerUps", 2f, 20f);
 	}
 	
     void InstantiatePowerUps()
@@ -76,24 +72,6 @@ public class InstantiatePowerUp : MonoBehaviour {
         }
 
         if (rnd == 2)
-        {
-            foreach (var item in powerups)
-            {
-                if (!item.activeInHierarchy)
-                {
-                    if (item.name.StartsWith("Nitro"))
-                    {
-                        Vector3 rdnTransform = new Vector3(Random.Range(-37.5f, 37.5f), 1f, Random.Range(-37.5f, 37.5f));
-                        item.SetActive(true);
-                        item.transform.position = rdnTransform;
-                        item.transform.rotation = transform.rotation;
-
-                    }
-                }
-            }
-        }
-
-        if (rnd == 3)
         {
             foreach (var item in powerups)
             {

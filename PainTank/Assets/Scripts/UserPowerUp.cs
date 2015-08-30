@@ -10,6 +10,7 @@ public class UserPowerUp : MonoBehaviour {
     private GameObject heisenmuzzle;
     private GameObject jamesmuzzle;
     private Ray ray;
+
     private Transform muzzletransform;
 
     public GameObject WallPrefab;
@@ -19,6 +20,7 @@ public class UserPowerUp : MonoBehaviour {
     {
         this.powerUp = GetComponentInChildren<ChoosePowerUp>();
         this.laser = GetComponent<LineRenderer>();
+
         this.vadermuzzle = GameObject.FindGameObjectWithTag("VaderMuzzle");
         this.jackmuzzle = GameObject.FindGameObjectWithTag("JackMuzzle");
         this.heisenmuzzle = GameObject.FindGameObjectWithTag("HeisenMuzzle");
@@ -51,13 +53,9 @@ public class UserPowerUp : MonoBehaviour {
                 {
                     InstantiateWall(jackmuzzle.transform);
                 }
-                if (this.powerUp.EaglePowerUps[this.powerUp.EagleArrayPos].name.StartsWith("Nitro"))
-                {
-                    Debug.Log("Haha ein Nitro");
-                }
             }
         }
-        else if (this.gameObject.tag == "TankVader")
+        else if (this.gameObject.tag == "TankVader" && this.powerUp.VaderPowerUps != null)
         {
             if (Input.GetButtonDown(this.gameObject.name + "_UsePowerUp"))
             {
@@ -73,13 +71,10 @@ public class UserPowerUp : MonoBehaviour {
                 {
                     InstantiateWall(vadermuzzle.transform);
                 }
-                if (this.powerUp.VaderPowerUps[this.powerUp.VaderArrayPos].name.StartsWith("Nitro"))
-                {
-                    Debug.Log("Haha ein Nitro");
-                }
+                
             }
         }
-        else if (this.gameObject.tag == "HeisenTank")
+        else if (this.gameObject.tag == "HeisenTank" && this.powerUp.HeisenPowerUps != null)
         {
             if (Input.GetButtonDown(this.gameObject.name + "_UsePowerUp"))
             {
@@ -95,13 +90,10 @@ public class UserPowerUp : MonoBehaviour {
                 {
                     InstantiateWall(heisenmuzzle.transform);
                 }
-                if (this.powerUp.HeisenPowerUps[this.powerUp.HeisenArrayPos].name.StartsWith("Nitro"))
-                {
-                    Debug.Log("Haha ein Nitro");
-                }
+                
             }
         }
-        else if (this.gameObject.tag == "JamesTank")
+        else if (this.gameObject.tag == "JamesTank" && this.powerUp.JamesPowerUps != null)
         {
             if (Input.GetButtonDown(this.gameObject.name + "_UsePowerUp"))
             {
@@ -117,10 +109,7 @@ public class UserPowerUp : MonoBehaviour {
                 {
                     InstantiateWall(jamesmuzzle.transform);
                 }
-                if (this.powerUp.JamesPowerUps[this.powerUp.JamesArrayPos].name.StartsWith("Nitro"))
-                {
-                    Debug.Log("Haha ein Nitro");
-                }
+                
             }
         }
 
@@ -158,6 +147,8 @@ public class UserPowerUp : MonoBehaviour {
 
     void InstantiateWall(Transform muzzle)
     {
-        GameObject wall = (GameObject)Instantiate(WallPrefab, new Vector3(muzzle.position.x + 5, muzzle.position.y , muzzle.position.z ), Quaternion.identity);
+        GameObject wall = (GameObject)Instantiate(WallPrefab, new Vector3(muzzle.position.x, muzzle.position.y , muzzle.position.z ), Quaternion.identity);
     }
+    
+
 }
